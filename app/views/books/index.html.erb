@@ -1,0 +1,26 @@
+<h1>Books</h1>
+<div class="book-list">
+  <section class="title-column">
+    <h3>Title</h3>
+    <% @books.each do |book| %>
+    <p><%= book.title %></p>
+    <% end %>
+  </section>
+  <section class="body-column">
+    <h3>Body</h3>
+    <% @books.each do |book| %>
+    <p><%= book.body %></p>
+    <% end %>
+  </section>
+</div>
+
+
+
+<h2>New Book</h2>
+<%= form_with model: @book do |f| %>
+  <h3>Title</h3>
+  <%= f.text_field :title %>
+  <h3>Body</h3>
+  <%= f.text_area :body %><br>
+  <%= f.submit 'Create Book' %>
+<% end %>

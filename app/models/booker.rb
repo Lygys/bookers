@@ -1,2 +1,0 @@
-class Booker < ApplicationRecord
-end
