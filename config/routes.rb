@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'homes#index'
   get 'books' => 'books#index', as:'books'
   post 'books' => 'books#create'
   get 'books/:id/edit' => 'books#edit', as:'edit_book'
