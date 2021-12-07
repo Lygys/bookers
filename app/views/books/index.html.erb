@@ -21,8 +21,8 @@
           <td><%= book.title %></td>
           <td><%= book.body %></td>
           <td><%= link_to "Show", book_path(book) %></td>
-          <td>編集</td>
-          <td>削除</td>
+          <td><%= link_to "Edit", edit_book_path(book) %></td>
+          <td><%= link_to "Delete", book_path(book), method: :delete %></td>
         <% end %>
       </tbody>
     </table>
