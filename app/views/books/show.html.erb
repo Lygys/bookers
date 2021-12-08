@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="?">
-    <title>Bookers-show</title>
-  </head>
-  <body>
-    <p><strong>Title:</strong><%= @book.title %></p>
-    <p><strong>Body:</strong><%= @book.body %></p>
-    <%= link_to "Edit", edit_book_path(@book) %>
-    <%= link_to "Back", books_path %>
-  </body>
-</html>
+<body>
+  <p class="green-text"><%= notice %></p>
+  <p><strong>Title:</strong> <%= @book.title %></p>
+  <p><strong>Body:</strong> <%= @book.body %></p>
+  <%= link_to "Edit", edit_book_path(@book) %> |
+  <%= link_to "Back", books_path %>
+</body>

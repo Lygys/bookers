@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="?">
-    <title>Bookers-index</title>
-  </head>
-  <body>
-    <h1>Books</h1>
+<body>
+  <p class="green-text"><%= notice %></p>
+  <h1>Books</h1>
+  <% if @books.present? %>
     <table class="book-list">
       <thead>
         <tr>
@@ -18,37 +13,47 @@
       <tbody>
         <% @books.each do |book| %>
         <tr>
-          <td><%= book.title %></td>
-          <td><%= book.body %></td>
+        　<td><%= book.title %></td>
+        　<td><%= book.body %></td>
           <td><%= link_to "Show", book_path(book) %></td>
           <td><%= link_to "Edit", edit_book_path(book) %></td>
-          <td><%= link_to "Destroy", book_path(book), method: :delete %></td>
+          <td><%= link_to "Destroy", book_path(book), method: :delete, data: {confirm: "Are you sure?"} %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
+  <% end  %>
 
 
 
-    <h2>New Book</h2>
 
-    <% if @book.errors.any? %>
-      <% if @book.errors.count == 1 %>
-        <%= @book.errors.count %> error prohibited this book from being saved:
-      <% else %>
-        <%= @book.errors.count %> errors prohibited this book from being saved:
-      <% end %>
+  <h2>New Book</h2>
 
-      <% @book.errors.full_messages.each do |message| %>
-        <br><%= message %>
-      <% end %>
+  <% if @book.errors.any? %>
+    <div class="red-text">
+    <% if @book.errors.count == 1 %>
+      <%= @book.errors.count %> error prohibited this book from being saved:
+    <% else %>
+      <%= @book.errors.count %> errors prohibited this book from being saved:
     <% end %>
 
-    <%= form_with model: @book, local:true do |f| %>
-    <h3>Title</h3>
+    <% @book.errors.full_messages.each do |message| %>
+    <br><%= message %>
+    <% end %>
+    </div>
+  <% end %>
+
+  <%= form_with model: @book, local:true do |f| %>
+    <div class="field">
+    <label for="book_title">Title</label>
     <%= f.text_field :title %>
-    <h3>Body</h3>
+    </div>
+    <div class="field">
+    <label for="book_body">Body</label>
     <%= f.text_area :body %><br>
+    </div>
+    <div class="actions">
     <%= f.submit 'Create Book' %>
-    <% end %>
-  </body>
-</html>
+    </div>
+  <% end %>
+</body>

@@ -29,3 +29,33 @@ p, ol, ul, td {
   line-height: 18px;
   margin: 33px;
 }
+
+a {
+  color: #000;
+}
+
+label {
+  display: block;
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}

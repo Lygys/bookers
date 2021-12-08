@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="?">
-    <title>Bookers-edit</title>
-  </head>
-  <body>
-    <h2>Editing Book</h2>
-    <%= form_with model: @book, local:true do |f| %>
-    <h3>Title</h3>
-    <%= f.text_field :title %>
-    <h3>Body</h3>
-    <%= f.text_area :body %><br>
-    <%= f.submit 'Update Book' %>
+<body>
+  <% if @book.errors.any? %>
+    <div class="red-text">
+    <% if @book.errors.count == 1 %>
+      <%= @book.errors.count %> error prohibited this book from being saved:
+    <% else %>
+      <%= @book.errors.count %> errors prohibited this book from being saved:
     <% end %>
-    <%= link_to "Show", book_path(@book) %>
-    <%= link_to "Back", books_path %>
-  </body>
-</html>
+
+    <% @book.errors.full_messages.each do |message| %>
+    <br><%= message %>
+    <% end %>
+    </div>
+  <% end %>
+
+
+  <h2>Editing Book</h2>
+  <%= form_with model: @book, local:true do |f| %>
+  <h3>Title</h3>
+  <%= f.text_field :title %>
+  <h3>Body</h3>
+  <%= f.text_area :body %><br>
+  <%= f.submit 'Update Book' %>
+  <% end %>
+  <%= link_to "Show", book_path(@book) %>
+  <%= link_to "Back", books_path %>
+</body>
